@@ -6,9 +6,10 @@
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
 
-{% block title %}<h1>{% trans 'Users' %}</h1>{% endblock %}
 
 {% block content %}
+
+<h1>{% trans 'Users' %}</h1>
 
 <body>
     <table class="table table-light table-striped">
@@ -29,8 +30,8 @@
                 <td>{{ user.get_full_name }}</td>
                 <td>{{ user.date_joined|date:"d.m.Y H:i" }}</td>
                 <td>
-                    <a class="btn btn-outline-dark btn-sm" href="#" role="button">{% trans 'Update' %}</a>
-                    <a class="btn btn-outline-danger btn-sm" href="#" role="button">{% trans 'Delete' %}</a>
+                    <a class="btn btn-outline-dark btn-sm my-1" href="#" role="button">{% trans 'Update' %}</a>
+                    <a class="btn btn-outline-danger btn-sm my-1" href="#" role="button">{% trans 'Delete' %}</a>
                 </td>
             </tr>
             {% endfor %}
