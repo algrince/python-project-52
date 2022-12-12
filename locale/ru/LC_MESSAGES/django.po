@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-12 01:29+0100\n"
+"POT-Creation-Date: 2022-12-12 23:05+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: task_manager/templates/base.html:21
-#: task_manager/templates/users/index.html:9
+#: task_manager/templates/users/index.html:12
 msgid "Users"
 msgstr "Пользователи"
 
@@ -33,22 +33,96 @@ msgstr "Вход"
 msgid "Sign-up"
 msgstr "Регистрация"
 
-#: task_manager/templates/users/index.html:18
+#: task_manager/templates/users/create_user.html:12
+#, fuzzy
+#| msgid "Sign-up"
+msgid "Sign-in"
+msgstr "Регистрация"
+
+#: task_manager/templates/users/create_user.html:18
+#: task_manager/templates/users/create_user.html:19
+#: task_manager/templates/users/update_user.html:18
+#: task_manager/templates/users/update_user.html:19
+msgid "First name"
+msgstr "Имя"
+
+#: task_manager/templates/users/create_user.html:22
+#: task_manager/templates/users/create_user.html:23
+#: task_manager/templates/users/update_user.html:22
+#: task_manager/templates/users/update_user.html:23
+msgid "Last name"
+msgstr "Фамилия"
+
+#: task_manager/templates/users/create_user.html:27
+#: task_manager/templates/users/create_user.html:28
+#: task_manager/templates/users/index.html:19
+#: task_manager/templates/users/update_user.html:27
+#: task_manager/templates/users/update_user.html:28
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: task_manager/templates/users/index.html:19
+#: task_manager/templates/users/create_user.html:29
+#: task_manager/templates/users/update_user.html:29
+msgid ""
+"Maximum lenght of 20 symbols. You can only use letters, cyphers or symbols "
+"(@ + - _ .)"
+msgstr "Не более 20 символов. Только буквы, цифры и символы (@ + - _ .)"
+
+#: task_manager/templates/users/create_user.html:32
+#: task_manager/templates/users/create_user.html:33
+#: task_manager/templates/users/update_user.html:32
+#: task_manager/templates/users/update_user.html:33
+msgid "Password"
+msgstr "Пароль"
+
+#: task_manager/templates/users/create_user.html:34
+#: task_manager/templates/users/update_user.html:34
+msgid "The lenght of your password should be between 6 and 25 characters"
+msgstr "Ваш пароль должен содержать от 6 до 25 символов."
+
+#: task_manager/templates/users/create_user.html:37
+#: task_manager/templates/users/create_user.html:38
+#: task_manager/templates/users/update_user.html:37
+#: task_manager/templates/users/update_user.html:38
+msgid "Password confirmation"
+msgstr "Подтвеждение пароля"
+
+#: task_manager/templates/users/create_user.html:39
+#: task_manager/templates/users/update_user.html:39
+msgid "Please confirm your password by introducing it one more time"
+msgstr "Для подтверждения введите, пожалуйста, пароль еще раз."
+
+#: task_manager/templates/users/create_user.html:41
+#: task_manager/templates/users/update_user.html:41
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: task_manager/templates/users/delete_user.html:12
+msgid "Deleting a user"
+msgstr "Удаление пользователя"
+
+#: task_manager/templates/users/delete_user.html:18
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
+#: task_manager/templates/users/index.html:20
 msgid "Fullname"
 msgstr "Полное имя"
 
-#: task_manager/templates/users/index.html:20
+#: task_manager/templates/users/index.html:21
 msgid "Creation date"
 msgstr "Дата создания"
 
-#: task_manager/templates/users/index.html:32
+#: task_manager/templates/users/index.html:33
 msgid "Update"
 msgstr "Изменить"
 
-#: task_manager/templates/users/index.html:33
+#: task_manager/templates/users/index.html:34
 msgid "Delete"
 msgstr "Удалить"
+
+#: task_manager/templates/users/update_user.html:12
+#, fuzzy
+#| msgid "Update"
+msgid "User update"
+msgstr "Изменить"

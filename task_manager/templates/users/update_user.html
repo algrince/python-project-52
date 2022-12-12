@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+
+{% block content %}
+
+<h1>{% trans 'User update' %}</h1>
+
+<body>
+  <form>
+      <div class="row g-3">
+          <div class="col">
+              <label for="id_first_name" class="form-label h5 mt-3">{% trans 'First name' %}</label>
+              <input type="text" class="form-control mb-3" maxlenght="150" required id="id_first_name" placeholder="{% trans 'First name' %}">
+          </div>
+          <div class="col">
+              <label for="id_last_name" class="form-label h5 mt-3">{% trans 'Last name' %}</label>
+              <input type="text" class="form-control mb-3" maxlenght="150" required id="id_last_name" placeholder="{% trans 'Last name' %}">
+          </div>
+      </div>
+      <div class="mb-3">
+        <label for="id_username" class="form-label h5 mt-3">{% trans 'Username' %}</label>
+        <input type="text" class="form-control" maxlenght="20" required id="id_username" placeholder="{% trans 'Username' %}">
+        <div id="id_username" class="form-text mb-3">{% trans 'Maximum lenght of 20 symbols. You can only use letters, cyphers or symbols (@ + - _ .)' %}</div>
+      </div>
+      <div class="mb-3">
+        <label for="id_password1" class="form-label h5 mt-3">{% trans 'Password' %}</label>
+        <input type="password" class="form-control" maxleght="25" required id="id_password1" placeholder="{% trans 'Password' %}">
+        <div id="id_password1" class="form-text mb-3">{% trans 'The lenght of your password should be between 6 and 25 characters' %}</div>
+      </div>
+      <div class="mb-3">
+          <label for="id_password2" class="form-label h5 mt-3">{% trans 'Password confirmation' %}</label>
+          <input type="password" class="form-control" maxleght="25" required id="id_password2" placeholder="{% trans 'Password confirmation' %}">
+          <div id="id_password2" class="form-text mb-3">{% trans 'Please confirm your password by introducing it one more time' %}</div>
+        </div>
+      <button type="submit" class="btn btn-outline-dark">{% trans 'Register' %}</button>
+  </form>
+</body>
+
+{% endblock %}
