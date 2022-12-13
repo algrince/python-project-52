@@ -9,7 +9,9 @@
 
 {% block content %}
 
-<h1>{% trans 'Sign-in' %}</h1>
+{% block name %}
+
+{% endblock %}
 
 <body>
     <form>
@@ -37,8 +39,10 @@
             <label for="id_password2" class="form-label h5 mt-3">{% trans 'Password confirmation' %}</label>
             <input type="password" class="form-control" maxleght="25" required id="id_password2" placeholder="{% trans 'Password confirmation' %}">
             <div id="id_password2" class="form-text mb-3">{% trans 'Please confirm your password by introducing it one more time' %}</div>
-          </div>
-        <button type="submit" class="btn btn-outline-dark">{% trans 'Register' %}</button>
+        </div>
+        {% block button %}
+        
+        {% endblock %}
     </form>
 </body>
 
