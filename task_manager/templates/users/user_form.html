@@ -14,7 +14,8 @@
 {% endblock %}
 
 <body>
-    <form>
+    <form method="post">
+      {% csrf_token %}
         <div class="row g-3">
             <div class="col">
                 <label for="id_first_name" class="form-label h5 mt-3">{% trans 'First name' %}</label>
