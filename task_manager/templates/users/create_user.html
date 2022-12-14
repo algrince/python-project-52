@@ -13,6 +13,12 @@
 {% endblock %}
 
 
+{% block form %}
+
+<form method="post" action="{% url 'user_create' %}">
+
+{% endblock %}
+
 {% block button %}
 
 <button type="submit" class="btn btn-outline-dark">{% trans 'Register' %}</button>

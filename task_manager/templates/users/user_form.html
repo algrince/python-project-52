@@ -14,33 +14,35 @@
 {% endblock %}
 
 <body>
-    <form method="post">
+    {% block form %}
+
+    {% endblock %}
       {% csrf_token %}
-        <div class="row g-3">
-            <div class="col">
-                <label for="id_first_name" class="form-label h5 mt-3">{% trans 'First name' %}</label>
-                <input type="text" class="form-control mb-3" maxlenght="150" required id="id_first_name" placeholder="{% trans 'First name' %}">
-            </div>
-            <div class="col">
-                <label for="id_last_name" class="form-label h5 mt-3">{% trans 'Last name' %}</label>
-                <input type="text" class="form-control mb-3" maxlenght="150" required id="id_last_name" placeholder="{% trans 'Last name' %}">
-            </div>
+      <div class="row g-3">
+        <div class="col">
+            <label for="{{ form.first_name.id_for_label }}" class="form-label h5 mt-3">{{ form.first_name.label }}</label>
+            {{ form.first_name }}
         </div>
-        <div class="mb-3">
-          <label for="id_username" class="form-label h5 mt-3">{% trans 'Username' %}</label>
-          <input type="text" class="form-control" maxlenght="20" required id="id_username" placeholder="{% trans 'Username' %}">
-          <div id="id_username" class="form-text mb-3">{% trans 'Maximum lenght of 20 symbols. You can only use letters, cyphers or symbols (@ + - _ .)' %}</div>
+        <div class="col">
+            <label for="{{ form.last_name.id_for_label }}" class="form-label h5 mt-3">{{ form.last_name.label }}</label>
+            {{ form.last_name }}
         </div>
-        <div class="mb-3">
-          <label for="id_password1" class="form-label h5 mt-3">{% trans 'Password' %}</label>
-          <input type="password" class="form-control" maxleght="25" required id="id_password1" placeholder="{% trans 'Password' %}">
-          <div id="id_password1" class="form-text mb-3">{% trans 'The lenght of your password should be between 6 and 25 characters' %}</div>
-        </div>
-        <div class="mb-3">
-            <label for="id_password2" class="form-label h5 mt-3">{% trans 'Password confirmation' %}</label>
-            <input type="password" class="form-control" maxleght="25" required id="id_password2" placeholder="{% trans 'Password confirmation' %}">
-            <div id="id_password2" class="form-text mb-3">{% trans 'Please confirm your password by introducing it one more time' %}</div>
-        </div>
+      </div>
+      <div class="mb-3">
+        <label for="{{ form.username.id_for_label }}" class="form-label h5 mt-3">{{ form.username.label }}</label>
+        {{ form.username }}
+        <div id="{{ form.username.id_for_label }}" class="form-text mb-3">{% trans 'Maximum lenght of 20 symbols. You can only use letters, cyphers or symbols (@ + - _ .)' %}</div>
+      </div>
+      <div class="mb-3">
+        <label for="{{ form.password1.id_for_label }}" class="form-label h5 mt-3">{{ form.password1.label }}</label>
+        {{ form.password1 }}
+        <div id="{{ form.password1.id_for_label }}" class="form-text mb-3">{% trans 'The lenght of your password should be between 6 and 25 characters' %}</div>
+      </div>
+      <div class="mb-3">
+        <label for="{{ form.password2.id_for_label }}" class="form-label h5 mt-3">{{ form.password2.label }}</label>
+        {{ form.password2 }}
+        <div id="{{ form.password2.id_for_label }}" class="form-text mb-3">{% trans 'Please confirm your password by introducing it one more time' %}</div>
+      </div>
         {% block button %}
         
         {% endblock %}

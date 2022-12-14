@@ -5,7 +5,7 @@ from django.views import View
 from django.views.generic.base import ContextMixin
 from django.urls import reverse_lazy
 from task_manager.users.models import User
-from task_manager.users.forms import UserForm
+from task_manager.users.forms import UserForm, ChangeUserForm
 
 class UserIndexView(ListView):
 
@@ -17,15 +17,17 @@ class UserIndexView(ListView):
 class UserFormCreateView(CreateView):
 
     model = User
-    fields = "__all__"
+    form_class = UserForm
     template_name = "users/create_user.html"
+    success_url = reverse_lazy('index')
 
 
 class UserFormUpdateView(UpdateView):
 
     model = User
-    fields = "__all__"
+    form_class = ChangeUserForm
     template_name = "users/update_user.html"
+    success_url = reverse_lazy('index')
 
 
 class UserDeleteView(DeleteView):
