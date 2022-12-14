@@ -3,6 +3,7 @@ from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views import View
 from django.views.generic.base import ContextMixin
+from django.urls import reverse_lazy
 from task_manager.users.models import User
 from task_manager.users.forms import UserForm
 
@@ -31,3 +32,4 @@ class UserDeleteView(DeleteView):
 
     model = User
     template_name = "users/delete_user.html"
+    success_url = reverse_lazy('index')
