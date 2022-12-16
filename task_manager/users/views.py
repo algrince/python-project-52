@@ -1,8 +1,6 @@
-from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.base import ContextMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.urls import reverse_lazy
 from task_manager.users.models import User
 from task_manager.users.forms import UserForm, ChangeUserForm
@@ -22,16 +20,26 @@ class UserFormCreateView(CreateView):
     success_url = reverse_lazy('index')
 
 
-class UserFormUpdateView(LoginRequiredMixin, UpdateView):
+class UserFormUpdateView(
+        LoginRequiredMixin,
+        PermissionRequiredMixin, 
+        UpdateView
+):
 
     model = User
+    permission_required = ('users.change_user')
     form_class = ChangeUserForm
     template_name = "users/update_user.html"
     success_url = reverse_lazy('index')
 
 
-class UserDeleteView(LoginRequiredMixin, DeleteView):
+class UserDeleteView(
+    LoginRequiredMixin,
+    PermissionRequiredMixin, 
+    DeleteView,
+):
 
     model = User
+    permission_required = ('users.delete_user')
     template_name = "users/delete_user.html"
     success_url = reverse_lazy('index')
