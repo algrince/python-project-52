@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+
+{% block content %}
+
+<body>
+    <form method="post" action="{% url 'login' %}" class="col-lg-auto offset-lg-3">
+            {% csrf_token %}
+            <h1 class="h3 mb-3 fw-normal">{% trans 'Please sign in' %}</h1>
+            <div class="form-floating">
+                <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+                {{ form.username }}
+            </div>
+            <div class="form-floating">
+                <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+                {{ form.password }}
+            </div>
+            <button class="w-50 btn btn-lg btn-primary" type="submit">{% trans 'Submit' %}</button>
+    </form>
+</body>
+
+{% endblock %}
