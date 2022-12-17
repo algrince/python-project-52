@@ -52,7 +52,7 @@ class UserForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ["first_name", "last_name", "username", "password"]
+        fields = ["first_name", "last_name", "username", "password1", "password2"]
         max_lenghts = {
             'first_name': 30,
             'username': 20,
@@ -78,50 +78,8 @@ class UserForm(UserCreationForm):
         }
 
 
-class ChangeUserForm(UserChangeForm):
-    password1 = forms.CharField(
-        label=_('Password'),
-        min_length=6,
-        max_length=25,
-        widget=forms.PasswordInput(attrs={
-            'class': 'form-control',
-            'placeholder': _('Password'),
-        }),
-    )
-
-    password2 = forms.CharField(
-        label=_('Password confirmation'),
-        min_length=6,
-        max_length=25,
-        widget=forms.PasswordInput(attrs={
-            'class': 'form-control',
-            'placeholder': _('Password confirmation'),
-        }),
-    )
+class ChangeUserForm(UserForm, UserChangeForm):
 
     class Meta:
         model = User
-        fields = ["first_name", "last_name", "username", "password"]
-        max_lenghts = {
-            'first_name': 30,
-            'username': 20,
-        }
-        labels = {
-            'first_name': _('First name'),
-            'last_name': _('Last name'),
-            'username': _('Username')
-        }
-        widgets = {
-            'first_name': forms.TextInput(attrs={
-                'class': 'form-control mb-3',
-                'placeholder': _('First name'),
-            }),
-            'last_name': forms.TextInput(attrs={
-                'class': 'form-control mb-3',
-                'placeholder': _('Last name'),
-            }),
-            'username': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': _('Username'),
-            }),
-        }
+        fields = ["first_name", "last_name", "username", "password1", "password2"]

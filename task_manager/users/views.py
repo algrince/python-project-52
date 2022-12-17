@@ -5,7 +5,10 @@ from django.urls import reverse_lazy
 from task_manager.users.models import User
 from task_manager.users.forms import UserForm, ChangeUserForm
 
-class UserIndexView(ListView):
+class UserIndexView(
+    LoginRequiredMixin,
+    ListView
+):
 
     model = User
     template_name = "users/index.html"
@@ -17,7 +20,7 @@ class UserFormCreateView(CreateView):
     model = User
     form_class = UserForm
     template_name = "users/create_user.html"
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('login')
 
 
 class UserFormUpdateView(

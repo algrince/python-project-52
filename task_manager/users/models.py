@@ -8,6 +8,7 @@ class User(AbstractUser):
         'first_name',
         'last_name',
     ]
+    USERNAME_FIELD = 'username'
 
 
     def __str__(self):
