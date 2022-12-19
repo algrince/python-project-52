@@ -9,6 +9,11 @@
 {% block name %}
 
 <h1>{% trans 'Sign-up' %}</h1>
+{% if messages %}
+<div class="alert alert-primary" role="alert">
+    {{ messages }}
+</div>
+{% endif %}
 
 {% endblock %}
 

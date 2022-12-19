@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+
+{% block flash %}
+
+<div class="alert alert-danger" role="alert">
+    {{ exception }}
+</div>
+<a href="{% url 'index' %}" class="btn btn-outline-dark btn-sm my-1">{% trans 'Go back' %}</a>
+
+{% endblock %}
