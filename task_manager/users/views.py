@@ -4,6 +4,8 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.utils.translation import gettext_lazy as _
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
+from django.contrib import messages
 from task_manager.users.models import User
 from task_manager.users.forms import UserForm, ChangeUserForm
 
@@ -38,16 +40,20 @@ class UserFormUpdateView(
 
     model = User
     form_class = ChangeUserForm
-    template_name = ('users/update_user.html')
+    template_name = 'users/update_user.html'
 
     success_url = reverse_lazy('index')
     success_message = "%(username)s was updated successfully"
 
-    login_url = 'login'
-    permission_denied_message = _("You can't change another user!")
-
     def test_func(self):
         return self.get_object() == self.request.user
+
+    def handle_no_permission(self):
+        if not self.request.user.is_authenticated:
+            messages.error(self.request, _('You need to be logged in for changing the user!'))
+            return redirect('login')
+        messages.error(self.request, _("You can't change another user!"))
+        return redirect('index')
 
 
 class UserDeleteView(
@@ -62,8 +68,12 @@ class UserDeleteView(
     success_url = reverse_lazy('index')
     success_message = "%(username)s was deleted successfully"
 
-    login_url = 'login'
-    permission_denied_message = _("You can't delete another user!")
-
     def test_func(self):
         return self.get_object() == self.request.user
+
+    def handle_no_permission(self):
+        if not self.request.user.is_authenticated:
+            messages.error(self.request, _('You need to be logged in for deleting the user!'))
+            return redirect('login')
+        messages.error(self.request, _("You can't delete another user!"))
+        return redirect('index')
