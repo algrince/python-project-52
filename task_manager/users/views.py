@@ -17,12 +17,12 @@ class UserIndexView(
     model = User
     template_name = 'users/index.html'
     context_object_name = "users"
-    
+
 
 class UserFormCreateView(
         SuccessMessageMixin,
         CreateView
-    ):
+):
 
     model = User
     form_class = UserForm
@@ -50,9 +50,15 @@ class UserFormUpdateView(
 
     def handle_no_permission(self):
         if not self.request.user.is_authenticated:
-            messages.error(self.request, _('You need to be logged in for changing the user!'))
+            messages.error(
+                self.request,
+                _('You need to be logged in for changing the user!')
+            )
             return redirect('login')
-        messages.error(self.request, _("You can't change another user!"))
+        messages.error(
+            self.request,
+            _("You can't change another user!")
+        )
         return redirect('index')
 
 
@@ -73,7 +79,13 @@ class UserDeleteView(
 
     def handle_no_permission(self):
         if not self.request.user.is_authenticated:
-            messages.error(self.request, _('You need to be logged in for deleting the user!'))
+            messages.error(
+                self.request,
+                _('You need to be logged in for deleting the user!')
+            )
             return redirect('login')
-        messages.error(self.request, _("You can't delete another user!"))
+        messages.error(
+            self.request,
+            _("You can't delete another user!")
+        )
         return redirect('index')

@@ -1,22 +1,16 @@
 install:
 	poetry install
 
-build:
-	poetry build
-
-package-install:
-	python3 -m pip install --user dist/*.whl
-
-setup: install build package-install
-
 test:
-	poetry run pytest
+	poetry run python manage.py test
 
 test-coverage:
-	poetry run pytest --cov=page_loader --cov-report xml
+	poetry run coverage run manage.py test task_manager
+	poetry run coverage html
+	poetry run coverage report
 
 lint: 
-	poetry run flake8 page_loader
+	poetry run flake8 .
 
 selfcheck:
 	poetry check

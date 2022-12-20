@@ -3,9 +3,8 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 
 
-
 class UserAuthenticationForm(AuthenticationForm):
-    
+
     username = forms.CharField(
         label=_('Username'),
         widget=forms.TextInput(attrs={

@@ -6,7 +6,6 @@ from django.contrib import messages
 from .forms import UserAuthenticationForm
 
 
-
 def index(request):
     return render(request, 'base.html')
 
