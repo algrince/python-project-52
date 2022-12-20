@@ -27,7 +27,7 @@ guni:
 	poetry run gunicorn project.wsgi:application
 
 get-trans:
-	poetry run django-admin makemessages --ignore="static" --ignore=".env"  -l en
+	poetry run django-admin makemessages -l en
 
 run-trans:
 	poetry run django-admin compilemessages
