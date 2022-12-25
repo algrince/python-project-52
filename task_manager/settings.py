@@ -30,7 +30,7 @@ DEBUG = os.getenv('DEBUG', 'False')
 
 ALLOWED_HOSTS = ['*', 'webserver']
 
-CSRF_TRUSTED_ORIGINS = 'https://python-project-52-production-a8f5.up.railway.app'
+CSRF_TRUSTED_ORIGINS = ['https://python-project-52-production-a8f5.up.railway.app']
 
 
 # Application definition
