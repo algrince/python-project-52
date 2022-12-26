@@ -1,4 +1,4 @@
-{% extends 'users/user_form.html' %}
+{% extends 'statuses/status_form.html' %}
 {% load i18n %}
 {% load bootstrap4 %}
 
@@ -8,20 +8,19 @@
 
 {% block name %}
 
-<h1>{% trans 'User update' %}</h1>
+<h1>{% trans 'Create status' %}</h1>
 
 {% endblock %}
 
 
 {% block form %}
 
-<form method="post" action="{% url 'user_update' user.id %}">
+<form method="post" action="{% url 'status_create' %}">
 
 {% endblock %}
 
-
 {% block button %}
 
-<button type="submit" class="btn btn-outline-dark">{% trans 'Update' %}</button>
+<button type="submit" class="btn btn-outline-dark">{% trans 'Save status' %}</button>
 
 {% endblock %}

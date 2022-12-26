@@ -19,6 +19,11 @@
                 <li class="nav-item">
                   <a class="nav-link active" href="{% url 'index' %}">{% trans 'Users' %}</a>
                 </li>
+                {% if user.is_authenticated %}
+                <li>
+                  <a class="nav-link active" href="{% url 'status_index' %}">{% trans 'Statuses' %}</a>
+                </li>
+                {% endif %}
                 
               </ul>
               <ul class="navbar-nav">

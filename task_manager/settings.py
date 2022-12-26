@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'task_manager',
     'task_manager.users',
+    'task_manager.statuses',
     'bootstrap4',
 ]
 
@@ -89,8 +90,8 @@ DATABASES = {
 }
 
 
-if os.getenv('DATABASE_URL'):
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+# if os.getenv('DATABASE_URL'):
+#    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
 # Password validation

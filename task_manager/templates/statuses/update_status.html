@@ -1,0 +1,27 @@
+{% extends 'statuses/status_form.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% block name %}
+
+<h1>{% trans 'Status update' %}</h1>
+
+{% endblock %}
+
+
+{% block form %}
+
+<form method="post" action="{% url 'status_update' status.id %}">
+
+{% endblock %}
+
+
+{% block button %}
+
+<button type="submit" class="btn btn-outline-dark">{% trans 'Update status' %}</button>
+
+{% endblock %}

@@ -6,8 +6,8 @@ from django.utils.translation import gettext_lazy as _
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from django.contrib import messages
-from task_manager.users.models import User
-from task_manager.users.forms import UserForm, ChangeUserForm
+from .models import User
+from .forms import UserForm, ChangeUserForm
 
 
 class UserIndexView(
@@ -16,7 +16,7 @@ class UserIndexView(
 
     model = User
     template_name = 'users/index.html'
-    context_object_name = "users"
+    context_object_name = 'users'
 
 
 class UserFormCreateView(

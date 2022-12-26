@@ -15,7 +15,7 @@ class UserLoginView(LoginView):
     authentication_form = UserAuthenticationForm
 
     def get_success_url(self):
-        messages.success(self.request, _('Tou are successfully logged in'))
+        messages.success(self.request, _('You are successfully logged in'))
         return reverse_lazy('base')
 
 

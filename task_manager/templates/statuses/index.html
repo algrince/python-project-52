@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+
+{% block content %}
+
+<h1>{% trans 'Statuses' %}</h1>
+
+<a href="{% url 'status_create' %}">{% trans 'Create status' %}</a>
+
+<body>
+    <table class="table table-light table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">{% trans 'Name' %}</th>
+                <th scope="col">{% trans 'Creation date' %}</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for status in statuses %}
+            <tr>
+                <th scope="row">{{ status.id }}</th>
+                <td>{{ status.name }}</td>
+                <td>{{ user.created_at|date:"d.m.Y H:i" }}</td>
+                <td>
+                    <a class="btn btn-outline-dark btn-sm my-1" href="{% url 'status_update' status.id %}" role="button">{% trans 'Update' %}</a>
+                    <a class="btn btn-outline-danger btn-sm my-1" href="{% url 'status_delete' status.id %}" role="button">{% trans 'Delete' %}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+{% endblock %}

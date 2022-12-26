@@ -27,7 +27,7 @@ guni:
 	poetry run gunicorn project.wsgi:application
 
 get-trans:
-	poetry run django-admin makemessages -l en
+	poetry run django-admin makemessages -l ru
 
 run-trans:
 	poetry run django-admin compilemessages
