@@ -33,9 +33,9 @@ class StatusFormCreateView(
 
     login_url = 'login'
     permission_denied_message = _('You should be logged in to create a status!')
-    redirect_field_name = reverse_lazy('status_index')
+    redirect_field_name = reverse_lazy('statuses:status_index')
 
-    success_url = reverse_lazy('status_index')
+    success_url = reverse_lazy('statuses:status_index')
     success_message = "Status was created successfully"
 
 class StatusFormUpdateView(
@@ -50,9 +50,9 @@ class StatusFormUpdateView(
 
     login_url = 'login'
     permission_denied_message = _('You should be logged in to change a status!')
-    redirect_field_name = reverse_lazy('status_index')
+    redirect_field_name = reverse_lazy('statuses:status_index')
 
-    success_url = reverse_lazy('status_index')
+    success_url = reverse_lazy('statuses:status_index')
     success_message = "Status was updated successfully"
 
 
@@ -68,7 +68,7 @@ class StatusDeleteView(
 
     login_url = 'login'
     permission_denied_message = _('You should be logged in to delete a status!')
-    redirect_field_name = reverse_lazy('status_index')
+    redirect_field_name = reverse_lazy('statuses:status_index')
 
-    success_url = reverse_lazy('status_index')
+    success_url = reverse_lazy('statuses:status_index')
     success_message = "Status was deleted successfully"

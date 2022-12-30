@@ -17,11 +17,11 @@
             <div class="navbar-collapse collapse" id="navbarToggleExternalContent" style="">
               <ul class="navbar-nav mr-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                  <a class="nav-link active" href="{% url 'index' %}">{% trans 'Users' %}</a>
+                  <a class="nav-link active" href="{% url 'users:index' %}">{% trans 'Users' %}</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li>
-                  <a class="nav-link active" href="{% url 'status_index' %}">{% trans 'Statuses' %}</a>
+                  <a class="nav-link active" href="{% url 'statuses:status_index' %}">{% trans 'Statuses' %}</a>
                 </li>
                 {% endif %}
                 
@@ -42,7 +42,7 @@
                     <a href="{% url 'login' %}" class="btn btn-outline-light ml-2 my-1">{% trans 'Login' %}</a>
                   </li>
                   <li class="nav-item">
-                    <a href="{% url 'user_create' %}" class="btn btn-primary ml-2 my-1">{% trans 'Sign-up' %}</a>
+                    <a href="{% url 'users:user_create' %}" class="btn btn-primary ml-2 my-1">{% trans 'Sign-up' %}</a>
                   </li>
                 {% endif %}
               </ul>

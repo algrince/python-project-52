@@ -11,7 +11,7 @@
 
 <h1>{% trans 'Deleting a user' %}</h1>
 <body>
-    <form method="post" action="{% url 'user_delete' user.id %}">
+    <form method="post" action="{% url 'users:user_delete' user.id %}">
         {% csrf_token %}
         <p class="h5 text-danger my-3">
             {% trans 'Are you sure you want to delete' %} {{ user.username }}?

@@ -42,7 +42,7 @@ class UserFormUpdateView(
     form_class = ChangeUserForm
     template_name = 'users/update_user.html'
 
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('users:index')
     success_message = "%(username)s was updated successfully"
 
     def test_func(self):
@@ -59,7 +59,7 @@ class UserFormUpdateView(
             self.request,
             _("You can't change another user!")
         )
-        return redirect('index')
+        return redirect('users:index')
 
 
 class UserDeleteView(
@@ -71,7 +71,7 @@ class UserDeleteView(
     model = User
     template_name = "users/delete_user.html"
 
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('users:index')
     success_message = "%(username)s was deleted successfully"
 
     def test_func(self):
@@ -88,4 +88,4 @@ class UserDeleteView(
             self.request,
             _("You can't delete another user!")
         )
-        return redirect('index')
+        return redirect('users:index')

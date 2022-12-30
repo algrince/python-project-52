@@ -11,7 +11,7 @@
 
 <h1>{% trans 'Deleting a status' %}</h1>
 <body>
-    <form method="post" action="{% url 'status_delete' status.id %}">
+    <form method="post" action="{% url 'statuses:status_delete' status.id %}">
         {% csrf_token %}
         <p class="h5 text-danger my-3">
             {% trans 'Are you sure you want to delete status ' %} {{ status.name }}?
