@@ -1,0 +1,22 @@
+{
+    "users": {
+        "new": {
+            "first_name": "New",
+            "last_name": "User",
+            "username": "newusername"
+        },
+        "existing": {
+            "first_name": "Second",
+            "last_name": "User",
+            "username": "userdos"
+        }
+    },
+    "statuses": {
+        "new": {
+
+        },
+        "existing": {
+
+        }
+    }
+}
