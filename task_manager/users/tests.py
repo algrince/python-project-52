@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 from django.core.exceptions import ObjectDoesNotExist
 from task_manager.users.models import User
+from task_manager.users.forms import UserForm
 from task_manager.utils import get_test_data
 
 
@@ -35,8 +36,8 @@ class UsersTest(TestCase):
     def test_create(self):
         new_user_data = self.test_data['users']['new']
         response = self.client.post(reverse('users:user_create'), new_user_data)
-
-        self.assertRedirects(response, reverse('users:index'))
+        
+        self.assertRedirects(response, reverse('login'))
         created_user = User.objects.get(username=new_user_data['username'])
         self.assertUser(created_user, new_user_data)
 
