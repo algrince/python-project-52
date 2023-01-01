@@ -11,6 +11,7 @@ class UsersTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.test_data = get_test_data()
+        cls.user = User.objects.get(pk=2)
 
     def assertUser(self, user, user_data):
         self.assertEqual(user.__str__(), user.get_full_name())
@@ -42,6 +43,7 @@ class UsersTest(TestCase):
     def test_update_page(self):
         exist_user_data = self.test_data['users']['existing']
         exist_user = User.objects.get(username=exist_user_data['username'])
+        self.client.force_login(self.user)
         response = self.client.get(reverse('users:user_update', args=[exist_user.pk]))
         self.assertEqual(response.status_code, 200)
 
@@ -49,6 +51,7 @@ class UsersTest(TestCase):
         exist_user_data = self.test_data['users']['existing']
         new_user_data = self.test_data['users']['new']
         exist_user = User.objects.get(username=exist_user_data['username'])
+        self.client.force_login(self.user)
         response = self.client.post(
             reverse('users:user_update', args=[exist_user.pk]),
             new_user_data,
@@ -61,12 +64,14 @@ class UsersTest(TestCase):
     def test_delete_page(self):
         exist_user_data = self.test_data['users']['existing']
         exist_user = User.objects.get(username=exist_user_data['username'])
+        self.client.force_login(self.user)
         response = self.client.get(reverse('users:user_delete', args=[exist_user.pk]))
         self.assertEqual(response.status_code, 200)
 
     def test_delete(self):
         exist_user_data = self.test_data['users']['existing']
         exist_user = User.objects.get(username=exist_user_data['username'])
+        self.client.force_login(self.user)
         reponse = self.client.post(reverse('users:user_delete', args=[exist_user.pk]))
         
         self.assertRedirects(reponse, reverse('users:index'))

@@ -5,7 +5,8 @@
         "fields": {
             "first_name": "First",
             "last_name": "User",
-            "username": "userone"
+            "username": "userone",
+            "password": "Illpass!1"
         }
     },
     {
@@ -14,7 +15,8 @@
         "fields": {
             "first_name": "Second",
             "last_name": "User",
-            "username": "userdos"
+            "username": "userdos",
+            "password": "Illpass!2"
         }
     },
     {
@@ -23,7 +25,8 @@
         "fields": {
             "first_name": "Third",
             "last_name": "Usera",
-            "username": "userthree"
+            "username": "userthree",
+            "password": "Illpass!3"
         }
     }
 ]

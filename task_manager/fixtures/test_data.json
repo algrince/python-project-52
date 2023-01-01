@@ -3,12 +3,14 @@
         "new": {
             "first_name": "New",
             "last_name": "User",
-            "username": "newusername"
+            "username": "newusername",
+            "password": "Illpass!21"
         },
         "existing": {
             "first_name": "Second",
             "last_name": "User",
-            "username": "userdos"
+            "username": "userdos",
+            "password": "Illpass!2"
         }
     },
     "statuses": {

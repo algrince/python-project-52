@@ -72,7 +72,7 @@ class UserDeleteView(
     template_name = "users/delete_user.html"
 
     success_url = reverse_lazy('users:index')
-    success_message = "%(username)s was deleted successfully"
+    success_message = "User was deleted successfully"
 
     def test_func(self):
         return self.get_object() == self.request.user
