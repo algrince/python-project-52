@@ -2,7 +2,6 @@ from django.test import TestCase
 from django.urls import reverse
 from django.core.exceptions import ObjectDoesNotExist
 from task_manager.users.models import User
-from task_manager.users.forms import UserForm
 from task_manager.utils import get_test_data
 
 
@@ -28,7 +27,7 @@ class UsersTest(TestCase):
             users,
             ordered=False,
         )
-    
+
     def test_create_page(self):
         response = self.client.get(reverse('users:user_create'))
         self.assertEqual(response.status_code, 200)
@@ -36,7 +35,7 @@ class UsersTest(TestCase):
     def test_create(self):
         new_user_data = self.test_data['users']['new']
         response = self.client.post(reverse('users:user_create'), new_user_data)
-        
+
         self.assertRedirects(response, reverse('login'))
         created_user = User.objects.get(username=new_user_data['username'])
         self.assertUser(created_user, new_user_data)
@@ -45,7 +44,10 @@ class UsersTest(TestCase):
         exist_user_data = self.test_data['users']['existing']
         exist_user = User.objects.get(username=exist_user_data['username'])
         self.client.force_login(self.user)
-        response = self.client.get(reverse('users:user_update', args=[exist_user.pk]))
+        response = self.client.get(reverse(
+            'users:user_update',
+            args=[exist_user.pk]
+        ))
         self.assertEqual(response.status_code, 200)
 
     def test_update(self):
@@ -61,20 +63,26 @@ class UsersTest(TestCase):
         self.assertRedirects(response, reverse('users:index'))
         updated_user = User.objects.get(username=new_user_data['username'])
         self.assertUser(updated_user, new_user_data)
-    
+
     def test_delete_page(self):
         exist_user_data = self.test_data['users']['existing']
         exist_user = User.objects.get(username=exist_user_data['username'])
         self.client.force_login(self.user)
-        response = self.client.get(reverse('users:user_delete', args=[exist_user.pk]))
+        response = self.client.get(reverse(
+            'users:user_delete',
+            args=[exist_user.pk]
+        ))
         self.assertEqual(response.status_code, 200)
 
     def test_delete(self):
         exist_user_data = self.test_data['users']['existing']
         exist_user = User.objects.get(username=exist_user_data['username'])
         self.client.force_login(self.user)
-        reponse = self.client.post(reverse('users:user_delete', args=[exist_user.pk]))
-        
+        reponse = self.client.post(reverse(
+            'users:user_delete',
+            args=[exist_user.pk]
+        ))
+
         self.assertRedirects(reponse, reverse('users:index'))
         with self.assertRaises(ObjectDoesNotExist):
             User.objects.get(username=exist_user_data['username'])

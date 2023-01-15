@@ -7,6 +7,7 @@ from django.urls import reverse_lazy
 from .models import Status
 from .forms import StatusForm
 
+
 class StatusIndexView(
         LoginRequiredMixin,
         ListView,
@@ -38,6 +39,7 @@ class StatusFormCreateView(
     success_url = reverse_lazy('statuses:status_index')
     success_message = "Status was created successfully"
 
+
 class StatusFormUpdateView(
     LoginRequiredMixin,
     SuccessMessageMixin,
@@ -64,7 +66,6 @@ class StatusDeleteView(
 
     model = Status
     template_name = 'statuses/delete_status.html'
-
 
     login_url = 'login'
     permission_denied_message = _('You should be logged in to delete a status!')
