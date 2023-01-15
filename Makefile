@@ -6,7 +6,7 @@ test:
 
 test-coverage:
 	poetry run coverage run manage.py test task_manager
-	poetry run coverage html
+	poetry run coverage xml
 	poetry run coverage report
 
 lint: 
