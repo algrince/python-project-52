@@ -17,10 +17,10 @@
     },
     "statuses": {
         "new": {
-
+            "name": "New status"
         },
         "existing": {
-
+            "name": "Old status"
         }
     }
 }

@@ -1,0 +1,18 @@
+[
+    {
+        "model": "statuses.status",
+        "pk": "1",
+        "fields": {
+            "name": "Old status",
+            "created_at": "2022-01-11T18:33:34.779Z"
+        }
+    },
+    {
+        "model": "statuses.status",
+        "pk": "2",
+        "fields": {
+            "name": "Status",
+            "created_at": "2022-05-12T18:33:34.779Z"
+        }
+    }
+]

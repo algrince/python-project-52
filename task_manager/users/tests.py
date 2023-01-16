@@ -78,11 +78,11 @@ class UsersTest(TestCase):
         exist_user_data = self.test_data['users']['existing']
         exist_user = User.objects.get(username=exist_user_data['username'])
         self.client.force_login(self.user)
-        reponse = self.client.post(reverse(
+        response = self.client.post(reverse(
             'users:user_delete',
             args=[exist_user.pk]
         ))
 
-        self.assertRedirects(reponse, reverse('users:index'))
+        self.assertRedirects(response, reverse('users:index'))
         with self.assertRaises(ObjectDoesNotExist):
             User.objects.get(username=exist_user_data['username'])
